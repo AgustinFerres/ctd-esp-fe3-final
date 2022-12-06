@@ -52,7 +52,7 @@ const Form = () => {
     <Box onSubmit={(e) => handleForm(e)} component='form' display='flex' flexDirection='column' gap='10px' sx={{width: '100%'}}>
       <Input {...userNameProps}/>
       <Input {...emailProps}/>
-      <Button variant="contained" type="submit" sx={{width: '50%', alignSelf: 'center'}}>Sendc</Button>
+      <Button variant="contained" type="submit" sx={{width: '50%', alignSelf: 'center'}}>Send</Button>
       {message}
     </Box>
   );
