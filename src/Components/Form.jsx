@@ -13,6 +13,7 @@ const Form = () => {
   const [errorEmailState, setEmailErrorState] = useState(false)
   const [message, setMessage] = useState("")
 
+
   const handleForm = (e) => {
     e.preventDefault();
     if(e.target[0].value.trim().length <= 5){
