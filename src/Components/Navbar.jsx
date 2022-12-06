@@ -122,7 +122,7 @@ const NavBar = () => {
                 <Link to={`/${page}`} key={page}>
                   <Button
                     onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: 'white', display: 'block', fontSize: '1.5rem' }}
+                    sx={{ my: 2, color: state.palette.text.primary, display: 'block', fontSize: '1.5rem' }}
                   >
                     {page}
                   </Button>

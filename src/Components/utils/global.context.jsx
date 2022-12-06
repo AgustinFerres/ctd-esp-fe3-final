@@ -14,7 +14,10 @@ const reducerFunction = (state, { mode }) => {
         palette: {
           mode: 'light',
           primary: {
-            main: '#81d4fa'
+            main: '#1565c0'
+          },
+          text: {
+            primary: '#fff',
           }
         },
       })
@@ -23,7 +26,13 @@ const reducerFunction = (state, { mode }) => {
         palette: {
           mode: 'dark',
           primary: {
-            main: '#242424'
+            main: '#1565c0'
+          },
+          background: {
+            default: '#242424'
+          },
+          text: {
+            primary: '#fff',
           }
         },
       })
@@ -37,6 +46,12 @@ const ContextProvider = ({ children }) => {
   const initalState = createTheme({
     palette: {
       mode: 'light',
+      primary: {
+        main: '#1565c0'
+      },
+      text: {
+        primary: '#fff',
+      }
     },
   })
   //SE TIENE QUE LLAMAR ASÍ
