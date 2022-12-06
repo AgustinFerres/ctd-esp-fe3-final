@@ -10,6 +10,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import { Link } from 'react-router-dom';
 
 const pages = ['Contact', 'Favs'];
 
@@ -29,7 +30,7 @@ const NavBar = () => {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
+          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', padding: '10px 100px'}}>
             <Typography
               variant="h6"
               noWrap
@@ -104,13 +105,15 @@ const NavBar = () => {
             </Typography>
             <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: '30px' }}>
               {pages.map((page) => (
-                <Button
-                  key={page}
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'block', fontSize: '1.75rem' }}
-                >
-                  {page}
-                </Button>
+                <Link to={`/${page}`}>
+                  <Button
+                    key={page}
+                    onClick={handleCloseNavMenu}
+                    sx={{ my: 2, color: 'white', display: 'block', fontSize: '1.5rem' }}
+                  >
+                    {page}
+                  </Button>
+                </Link>
               ))}
               <LightModeOutlinedIcon sx={{fontSize: '2rem'}}/>
             </Box>

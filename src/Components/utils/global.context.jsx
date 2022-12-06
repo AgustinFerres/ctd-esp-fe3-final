@@ -30,7 +30,7 @@ const ContextProvider = ({ children }) => {
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
   const initalState = createTheme({
     palette: {
-      mode: 'dark',
+      mode: 'light',
     },
   })
   //SE TIENE QUE LLAMAR ASÍ

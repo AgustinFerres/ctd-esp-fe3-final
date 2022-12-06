@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import Card from '../Components/Card'
 import NavBar from '../Components/Navbar'
 import axios from 'axios'
+import { useOutlet } from 'react-router-dom'
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
@@ -17,13 +18,17 @@ const Home = () => {
     axios.get(url).then(res => setData(res.data)).catch(err => console.log(err))
   },[])
 
+  const outlet = useOutlet();
+
   return (
     <main className="" >
       <h1>Home</h1>
       <NavBar/>
-      <div className='card-grid'>
-        {data?.map(odontologo => <Card {...odontologo} key={odontologo.id}/>)}
-      </div>
+      {
+        outlet || <div className='card-grid'>
+                    {data?.map(odontologo => <Card {...odontologo} key={odontologo.id}/>)}
+                  </div>
+      }
     </main>
   )
 }
