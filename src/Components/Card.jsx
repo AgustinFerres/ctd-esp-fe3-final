@@ -6,7 +6,7 @@ const Card = ({ name, username, id }) => {
 
 
   const addFav = ()=>{
-    localStorage.setItem(`${username}`, JSON.stringify(id));
+    localStorage.setItem("favs", JSON.stringify([id]));
   }
 
   return (

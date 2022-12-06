@@ -14,13 +14,13 @@ const Form = () => {
 
   const handleForm = (e) => {
     e.preventDefault();
-    if(e.target[0].value.length <= 5){
+    if(e.target[0].value.trim().length <= 5){
       setUserErrorState(true)
-      setMessage("Por favor verifique su información nuevamente")
+      setMessage(<p>Por favor verifique su información nuevamente</p>)
     }
     if(!/^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(e.target[2].value)){
       setEmailErrorState(true)
-      setMessage("Por favor verifique su información nuevamente")
+      setMessage(<p>Por favor verifique su información nuevamente</p>)
     }
     if(e.target[0].value.length > 5){
       setUserErrorState(false)
