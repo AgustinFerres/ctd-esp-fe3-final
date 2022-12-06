@@ -22,7 +22,7 @@ const Home = () => {
       <h1>Home</h1>
       <NavBar/>
       <div className='card-grid'>
-        {data?.map(odontologo => <Card {...odontologo}/>)}
+        {data?.map(odontologo => <Card {...odontologo} key={odontologo.id}/>)}
       </div>
     </main>
   )
