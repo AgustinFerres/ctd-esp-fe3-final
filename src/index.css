@@ -42,18 +42,28 @@ a:hover{
 
 footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
-  padding: 2rem;
+  padding: 10px 10vw;
   position: relative;
   bottom: 0;
-  width: 90%;
-  height: 40px;
   margin-top: 2rem;
 }
-
 footer > img{
-  width: 200px;
+  width: 30%;
+  aspect-ratio: 4/1;
+  margin: 0;
+}
+footer > div {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  align-items: center;
+}
+footer > div > img{
+  width: 10%;
+  aspect-ratio: 1/1;
   margin: 0;
 }
 footer > p{
@@ -95,7 +105,7 @@ form{
 }
 
 table {
- border-collapse: collapse;
+  border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
     display: table;

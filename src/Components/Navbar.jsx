@@ -11,6 +11,8 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { ContextGlobal } from './utils/global.context';
 
 const pages = ['Contact', 'Favs'];
 
@@ -24,10 +26,10 @@ const NavBar = () => {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
+  const { state } = useContext(ContextGlobal)
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" bgcolor={state.palette.primary.main} enableColorOnDark={true}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', padding: '10px 100px'}}>

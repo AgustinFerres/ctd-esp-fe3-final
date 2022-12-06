@@ -5,6 +5,8 @@ import Card from '../Components/Card'
 import NavBar from '../Components/Navbar'
 import axios from 'axios'
 import { useOutlet } from 'react-router-dom'
+import Footer from '../Components/Footer'
+import { Box } from '@mui/material'
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
@@ -21,15 +23,15 @@ const Home = () => {
   const outlet = useOutlet();
 
   return (
-    <main className="" >
-      <h1>Home</h1>
+    <Box component='main' sx={{display: {xs: 'flex', flexDirection: 'column', justifyContent: 'space-between'}, height: '100vh'}}>
       <NavBar/>
       {
         outlet || <div className='card-grid'>
                     {data?.map(odontologo => <Card {...odontologo} key={odontologo.id}/>)}
                   </div>
       }
-    </main>
+      <Footer/>
+    </Box>
   )
 }
 
