@@ -14,10 +14,12 @@ const reducerFunction = (state, { mode }) => {
         palette: {
           mode: 'light',
           primary: {
-            main: '#1565c0'
+            main: '#1565c0',
+            light: '#1565c9'
           },
           text: {
             primary: '#fff',
+            secondary: '#000',
           }
         },
       })
@@ -26,13 +28,15 @@ const reducerFunction = (state, { mode }) => {
         palette: {
           mode: 'dark',
           primary: {
-            main: '#1565c0'
+            main: '#242424',
+            light: '#404040'
           },
           background: {
-            default: '#242424'
+            default: '#343434',
           },
           text: {
             primary: '#fff',
+            secondary: '#fff',
           }
         },
       })
@@ -47,10 +51,12 @@ const ContextProvider = ({ children }) => {
     palette: {
       mode: 'light',
       primary: {
-        main: '#1565c0'
+        main: '#1565c0',
+        light: '#1565c9'
       },
       text: {
         primary: '#fff',
+        secondary: '#000',
       }
     },
   })

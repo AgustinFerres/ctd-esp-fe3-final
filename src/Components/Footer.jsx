@@ -7,7 +7,7 @@ const Footer = () => {
 
   const { state } = useContext(ContextGlobal)
   return (
-    <Box bgcolor={state.palette.primary.main} component='footer'>
+    <Box sx={{backgroundColor: state.palette.primary.light}} component='footer'>
       <img src="./images/DH.png" alt="" />
       <div>
         <img src="./images/ico-facebook.png" alt="" />

@@ -1,12 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
 import React, { useState } from "react";
+import { useContext } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { ContextGlobal } from "./utils/global.context";
 
 
 const CardComponent = ({ name, username, id }) => {
 
   const [buttonValue, setButtonValue] = useState("Add Fav")
+  const { state } = useContext(ContextGlobal)
 
   useEffect(() => {
     const dentistArray = JSON.parse(localStorage.getItem("favs"));
@@ -56,7 +60,7 @@ const CardComponent = ({ name, username, id }) => {
 
   return (
     <>
-      <Card sx={{ width: window.innerWidth < 800 ? '50vw' : '15vw', display: {xs: 'flex',flexDirection: 'column', justifyContent: 'space-between'}}}>
+      <Card sx={{ width: window.innerWidth < 800 ? '50vw' : '10vw', display: {xs: 'flex',flexDirection: 'column', justifyContent: 'space-between'}}}>
         <Link to={`/dentist/${id}`}> 
           <CardActionArea>
             <CardMedia
@@ -66,14 +70,14 @@ const CardComponent = ({ name, username, id }) => {
               alt="doctor image"
             />
             <CardContent>
-                <Typography gutterBottom variant="h5" component="h2" color='#000'>
+                <Typography gutterBottom variant="h5" component="h2" color={state.palette.mode === 'dark' ? '#fff' : '#000'}>
                   {name}
                 </Typography>
             </CardContent>
           </CardActionArea>
         </Link>
         <CardActions>
-        <Button size="small" color="primary" onClick={(e) => handleEvent(e)}>
+        <Button size="small" sx={{color: state.palette.text.secondary}} onClick={(e) => handleEvent(e)}>
           {buttonValue}
         </Button>
         </CardActions>
