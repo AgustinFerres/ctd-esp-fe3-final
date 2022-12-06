@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
@@ -13,7 +14,7 @@ const Detail = () => {
   const params = useParams()
 
   const [data, setData] = useState(null)
- 
+
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
   useEffect(() => {
     axios.get(`${url}/${params.id}`).then(res => setData(res.data)).catch(err => console.log(err));

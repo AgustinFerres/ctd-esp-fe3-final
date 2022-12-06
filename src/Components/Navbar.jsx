@@ -10,17 +10,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
-import NightsStayIcon from '@mui/icons-material/NightsStay';
 import { Link } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { ContextGlobal } from './utils/global.context';
+import ToogleButton from './ToogleButton';
 
 const pages = ['Contact', 'Favs'];
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
-  const [ darkMode, setDarkMode ] = useState(false)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -33,7 +31,6 @@ const NavBar = () => {
   const { state, dispatch } = useContext(ContextGlobal)
 
   const handleTheme = (currentMode) => {
-      setDarkMode(prev => !prev)
       dispatch({mode: currentMode})
   }
 
@@ -131,12 +128,7 @@ const NavBar = () => {
                   </Button>
                 </Link>
               ))}
-              {
-                darkMode ? 
-                <NightsStayIcon sx={{fontSize: '2rem'}} onClick={() => handleTheme('dark')}/> 
-                : 
-                <LightModeOutlinedIcon sx={{fontSize: '2rem'}} onClick={() => handleTheme('light')}/>
-              }
+              <ToogleButton onClick={() => handleTheme(state.palette.mode)}/>
             </Box>
           </div>
         </Toolbar>
