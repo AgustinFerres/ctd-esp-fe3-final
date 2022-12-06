@@ -15,7 +15,7 @@ const Favs = () => {
 
   useEffect(() => {
     setFavs(JSON.parse(localStorage.getItem("favs")))
-  },[])
+  },[favs])
 
   const { state } = useContext(ContextGlobal)
   return (
