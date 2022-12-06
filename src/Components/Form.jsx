@@ -37,7 +37,7 @@ const Form = () => {
 
   const userNameProps = {
     id: "username",
-    label: "Nombre Completo",
+    label: "Full Name",
     errorState: errorUserState
   }
 

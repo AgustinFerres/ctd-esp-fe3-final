@@ -16,21 +16,21 @@ const CardComponent = ({ name, username, id }) => {
     const dentistArray = JSON.parse(localStorage.getItem("favs"));
     const dentistInArray = dentistArray?.find(dentist => dentist.id === id);
     if(dentistInArray){
-      setButtonValue("Remove Fav")
+      setButtonValue("Remove Fav");
     }
     else {
-      setButtonValue("Add Fav")
+      setButtonValue("Add Fav");
     }
   },[])
 
   const handleEvent = (e) => {
     if(e.target.innerText === "ADD FAV"){
       addFav();
-      setButtonValue("Remove Fav")
+      setButtonValue("Remove Fav");
     }
     else if(e.target.innerText === "REMOVE FAV") {
       removeFav();
-      setButtonValue("Add Fav")
+      setButtonValue("Add Fav");
     }
   }
 

@@ -24,12 +24,12 @@ const Detail = () => {
     <>
       <h1>Detail Dentist id </h1>
       <div>
-        <p>Hola mi nombre es: {data?.name}</p>
-        <p>Me puedes contactar por 3 lugares</p>
+        <p>Hello, my name is: {data?.name}</p>
+        <p>You can contact me in this 3 places</p>
         <ul>
           <li>Email: {data?.email}</li>
-          <li>Telefono: {data?.phone}</li>
-          <li>Sitio web: {data?.website}</li>
+          <li>Phone: {data?.phone}</li>
+          <li>Website: {data?.website}</li>
         </ul>
       </div>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
