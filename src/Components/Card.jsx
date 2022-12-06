@@ -8,8 +8,14 @@ const Card = ({ name, username, id }) => {
   const addFav = ()=>{
     const odontologosArray = JSON.parse(localStorage.getItem("favs"));
     if(odontologosArray){
-      const newArray = [...odontologosArray, {name, username, id}]
-      localStorage.setItem("favs", JSON.stringify(newArray));
+      const odontologoInArray = odontologosArray.find(odontologo => odontologo.id === id);
+      if(odontologoInArray === undefined){
+        const newArray = [...odontologosArray, {name, username, id}]
+        localStorage.setItem("favs", JSON.stringify(newArray));
+      }
+      else {
+        console.log("Nothing happens");
+      }
     }
     else{
       localStorage.setItem("favs", JSON.stringify([{name, username, id}]));
