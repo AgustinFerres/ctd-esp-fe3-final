@@ -38,7 +38,7 @@ const NavBar = () => {
     <AppBar position="static" bgcolor={state.palette.primary.main} enableColorOnDark={true}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', padding: '10px 100px'}}>
+          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', padding: '10px 5vw'}}>
             <Typography
               variant="h6"
               noWrap
@@ -89,7 +89,6 @@ const NavBar = () => {
               >
                 {pages.map((page) => (
                   <Link to={`/${page}`} key={page}>
-
                     <MenuItem onClick={handleCloseNavMenu}>
                       <Typography textAlign="center" sx={{fontSize: '1.5rem'}}>{page}</Typography>
                     </MenuItem>
@@ -104,7 +103,6 @@ const NavBar = () => {
               sx={{
                 mr: 2,
                 display: { xs: 'flex', md: 'none' },
-                flexGrow: 1,
                 fontFamily: 'monospace',
                 fontWeight: 700,
                 fontSize: '2rem',
