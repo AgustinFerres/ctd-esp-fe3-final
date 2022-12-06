@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -10,14 +11,16 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import NightsStayIcon from '@mui/icons-material/NightsStay';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { ContextGlobal } from './utils/global.context';
 
 const pages = ['Contact', 'Favs'];
 
 const NavBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [ darkMode, setDarkMode ] = useState(false)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -26,7 +29,13 @@ const NavBar = () => {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-  const { state } = useContext(ContextGlobal)
+
+  const { state, dispatch } = useContext(ContextGlobal)
+
+  const handleTheme = (currentMode) => {
+      setDarkMode(prev => !prev)
+      dispatch({mode: currentMode})
+  }
 
   return (
     <AppBar position="static" bgcolor={state.palette.primary.main} enableColorOnDark={true}>
@@ -36,7 +45,7 @@ const NavBar = () => {
             <Typography
               variant="h6"
               noWrap
-              component="a"
+              component="p"
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
@@ -47,8 +56,10 @@ const NavBar = () => {
                 color: 'inherit',
                 textDecoration: 'none',
               }}
-            >
-              <span style={{color: 'red'}}>D</span>H Odonto
+            > 
+              <Link to='/' style={{color: 'inherit'}}>
+                <span style={{color: 'red'}}>D</span>H Odonto
+              </Link>
             </Typography>
             <Box sx={{ display: { xs: 'flex', md: 'none', justifyContent: 'space-between' } }}>
               <IconButton
@@ -80,17 +91,19 @@ const NavBar = () => {
                 }}
               >
                 {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center" sx={{fontSize: '1.5rem'}}>{page}</Typography>
-                  </MenuItem>
+                  <Link to={`/${page}`} key={page}>
+
+                    <MenuItem onClick={handleCloseNavMenu}>
+                      <Typography textAlign="center" sx={{fontSize: '1.5rem'}}>{page}</Typography>
+                    </MenuItem>
+                  </Link>
                 ))}
               </Menu>
             </Box>
             <Typography
               variant="h5"
               noWrap
-              component="a"
-              href=""
+              component="p"
               sx={{
                 mr: 2,
                 display: { xs: 'flex', md: 'none' },
@@ -103,13 +116,14 @@ const NavBar = () => {
                 textDecoration: 'none',
               }}
             >
-              <span style={{color: 'red'}}>D</span>H Odonto
+              <Link to='/'>
+                <span style={{color: 'red'}}>D</span>H Odonto
+              </Link>
             </Typography>
             <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: '30px' }}>
               {pages.map((page) => (
-                <Link to={`/${page}`}>
+                <Link to={`/${page}`} key={page}>
                   <Button
-                    key={page}
                     onClick={handleCloseNavMenu}
                     sx={{ my: 2, color: 'white', display: 'block', fontSize: '1.5rem' }}
                   >
@@ -117,7 +131,12 @@ const NavBar = () => {
                   </Button>
                 </Link>
               ))}
-              <LightModeOutlinedIcon sx={{fontSize: '2rem'}}/>
+              {
+                darkMode ? 
+                <NightsStayIcon sx={{fontSize: '2rem'}} onClick={() => handleTheme('dark')}/> 
+                : 
+                <LightModeOutlinedIcon sx={{fontSize: '2rem'}} onClick={() => handleTheme('light')}/>
+              }
             </Box>
           </div>
         </Toolbar>

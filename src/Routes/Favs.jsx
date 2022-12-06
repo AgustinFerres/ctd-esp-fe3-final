@@ -14,7 +14,6 @@ const Favs = () => {
 
   useEffect(() => {
     setFavs(JSON.parse(localStorage.getItem("favs")))
-    console.log(favs);
   },[])
 
   return (
