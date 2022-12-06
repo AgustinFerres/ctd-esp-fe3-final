@@ -6,7 +6,15 @@ const Card = ({ name, username, id }) => {
 
 
   const addFav = ()=>{
-    localStorage.setItem("favs", JSON.stringify([id]));
+    const odontologosArray = JSON.parse(localStorage.getItem("favs"));
+    if(odontologosArray){
+      const newArray = [...odontologosArray, id]
+      console.log(newArray);
+      localStorage.setItem("favs", JSON.stringify(newArray));
+    }
+    else{
+      localStorage.setItem("favs", JSON.stringify([id]));
+    }
   }
 
   return (
