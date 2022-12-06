@@ -1,21 +1,46 @@
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 
 const CardComponent = ({ name, username, id }) => {
 
+  const [buttonValue, setButtonValue] = useState("Add Fav")
 
-  const addFav = ()=>{
-    const odontologosArray = JSON.parse(localStorage.getItem("favs"));
-    if(odontologosArray){
-      const odontologoInArray = odontologosArray.find(odontologo => odontologo.id === id);
-      if(odontologoInArray === undefined){
-        const newArray = [...odontologosArray, {name, username, id}]
+  useEffect(() => {
+    const dentistArray = JSON.parse(localStorage.getItem("favs"));
+    const dentistInArray = dentistArray?.find(dentist => dentist.id === id);
+    if(dentistInArray){
+      setButtonValue("Remove Fav")
+    }
+    else {
+      setButtonValue("Add Fav")
+    }
+  },[])
+
+  const handleEvent = (e) => {
+    if(e.target.innerText === "ADD FAV"){
+      addFav();
+      setButtonValue("Remove Fav")
+    }
+    else if(e.target.innerText === "REMOVE FAV") {
+      removeFav();
+      setButtonValue("Add Fav")
+    }
+  }
+
+
+  const addFav = () => {
+    const dentistArray = JSON.parse(localStorage.getItem("favs"));
+    if(dentistArray){
+      const dentistInArray = dentistArray.find(dentist => dentist.id === id);
+      if(dentistInArray === undefined){
+        const newArray = [...dentistArray, {name, username, id}]
         localStorage.setItem("favs", JSON.stringify(newArray));
       }
       else {
-        console.log("Nothing happens");
+        return;
       }
     }
     else{
@@ -23,16 +48,12 @@ const CardComponent = ({ name, username, id }) => {
     }
   }
 
-      // <div className="card">
-      //     {/* En cada card deberan mostrar en name - username y el id */}
-      //     <img src="./images/doctor.jpg" alt="Odontologo" style={{width: '100%'}}/>
-      //     <Link to={`/dentist/${id}`}>{name}</Link>
+  const removeFav = () => {
+    const dentistArray = JSON.parse(localStorage.getItem("favs"));
+    const newArray = dentistArray.filter(dentist => dentist.id !== id);
+    localStorage.setItem("favs", JSON.stringify(newArray));
+  }
 
-      //     {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-
-      //     {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-      //     <button onClick={addFav} className="favButton">Add fav</button>
-      // </div>
   return (
     <>
       <Card sx={{ width: window.innerWidth < 800 ? '50vw' : '15vw', display: {xs: 'flex',flexDirection: 'column', justifyContent: 'space-between'}}}>
@@ -52,9 +73,9 @@ const CardComponent = ({ name, username, id }) => {
           </CardActionArea>
         </Link>
         <CardActions>
-          <Button size="small" color="primary" onClick={addFav}>
-            Add fav
-          </Button>
+        <Button size="small" color="primary" onClick={(e) => handleEvent(e)}>
+          {buttonValue}
+        </Button>
         </CardActions>
     </Card>
   </>
