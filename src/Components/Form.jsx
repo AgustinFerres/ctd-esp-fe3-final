@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Input from "./Input";
 import Button from '@mui/material/Button';
+import { Box } from "@mui/material";
 
 
 const Form = () => {
@@ -47,14 +48,12 @@ const Form = () => {
 
 
   return (
-    <div>
-      <form onSubmit={(e) => handleForm(e)}>
-        <Input {...userNameProps}/>
-        <Input {...emailProps}/>
-        <Button variant="contained" type="submit">Enviar</Button>
-        {message}
-      </form>
-    </div>
+    <Box onSubmit={(e) => handleForm(e)} component='form' display='flex' flexDirection='column' gap='10px' sx={{width: '100%'}}>
+      <Input {...userNameProps}/>
+      <Input {...emailProps}/>
+      <Button variant="contained" type="submit" sx={{width: '50%', alignSelf: 'center'}}>Enviar</Button>
+      {message}
+    </Box>
   );
 };
 

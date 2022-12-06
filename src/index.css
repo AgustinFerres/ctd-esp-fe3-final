@@ -33,7 +33,6 @@ nav{
 a{
   color: #000;
   text-decoration: none;
-  margin: 5px;
   cursor: pointer;
 }
 a:hover{
@@ -71,14 +70,6 @@ footer > p{
   padding-top: 0.7rem;
 }
 
-form{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 300px;
-  height: 100px;
-  margin: 0 auto;
-}
 
 .card-grid{
   display: flex;
@@ -107,14 +98,6 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
-}
-
-.dark{
-  background-color: #12121296;
-  color: white;
-}
-.dark > a {
-  color: white;
 }
 
 @media (max-width: 800px) {

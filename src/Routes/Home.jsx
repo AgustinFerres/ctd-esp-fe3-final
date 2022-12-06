@@ -23,7 +23,7 @@ const Home = () => {
   const outlet = useOutlet();
 
   return (
-    <Box component='main' sx={{display: {xs: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '50px'}, height: '100vh'}}>
+    <Box component='main' sx={{display: {xs: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', gap: '50px'}, height: '100vh'}}>
       <NavBar/>
       {
         outlet || <div className='card-grid'>
