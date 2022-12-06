@@ -13,12 +13,18 @@ const reducerFunction = (state, { mode }) => {
       return createTheme({
         palette: {
           mode: 'light',
+          primary: {
+            main: '#81d4fa'
+          }
         },
       })
     case "light":
       return createTheme({
         palette: {
           mode: 'dark',
+          primary: {
+            main: '#242424'
+          }
         },
       })
     default:
