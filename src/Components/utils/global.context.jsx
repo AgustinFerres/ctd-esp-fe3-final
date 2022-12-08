@@ -2,9 +2,8 @@ import { createContext, useReducer } from "react";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
-export const initialState = {theme: "", data: []}
 
-export const ContextGlobal = createContext(undefined);
+export const ContextGlobal = createContext();
 
 
 const reducerFunction = (state, { mode }) => {
