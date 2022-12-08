@@ -54,7 +54,7 @@ const NavBar = () => {
                 textDecoration: 'none',
               }}
             > 
-              <Link to='/' style={{color: 'inherit'}}>
+              <Link to='/' style={{color: 'white'}}>
                 <span style={{color: 'red'}}>D</span>H Odonto
               </Link>
             </Typography>
@@ -90,7 +90,7 @@ const NavBar = () => {
                 {pages.map((page) => (
                   <Link to={`/${page}`} key={page}>
                     <MenuItem onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center" sx={{fontSize: '1.5rem'}}>{page}</Typography>
+                      <Typography textAlign="center" sx={{fontSize: '1.5rem', color: state.palette.mode === 'dark' ? '#fff' : '#000'}}>{page}</Typography>
                     </MenuItem>
                   </Link>
                 ))}
@@ -111,7 +111,7 @@ const NavBar = () => {
                 textDecoration: 'none',
               }}
             >
-              <Link to='/'>
+              <Link to='/' style={{color: 'white'}}>
                 <span style={{color: 'red'}}>D</span>H Odonto
               </Link>
             </Typography>
@@ -120,7 +120,7 @@ const NavBar = () => {
                 <Link to={`/${page}`} key={page}>
                   <Button
                     onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: state.palette.text.primary, display: 'block', fontSize: '1.5rem' }}
+                    sx={{ my: 2, color: 'white', display: 'block', fontSize: '1.5rem' }}
                   >
                     {page}
                   </Button>

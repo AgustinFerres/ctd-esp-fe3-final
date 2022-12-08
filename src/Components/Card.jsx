@@ -9,8 +9,9 @@ import { ContextGlobal } from "./utils/global.context";
 
 const CardComponent = ({ name, username, id }) => {
 
-  const [buttonValue, setButtonValue] = useState("Add Fav")
-  const { state } = useContext(ContextGlobal)
+  const [buttonValue, setButtonValue] = useState("Add Fav");
+  const { state } = useContext(ContextGlobal);
+  const [ hover, setHover ] = useState(false);
 
   useEffect(() => {
     const dentistArray = JSON.parse(localStorage.getItem("favs"));
@@ -62,7 +63,7 @@ const CardComponent = ({ name, username, id }) => {
 
   return (
     <>
-      <Card sx={{ width: window.innerWidth < 800 ? '50vw' : '10vw', display: {xs: 'flex',flexDirection: 'column', justifyContent: 'space-between'}}}>
+      <Card sx={{ width: window.innerWidth < 800 ? '50vw' : '10vw', display: {xs: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}} raised={hover} onMouseEnter={() => setHover(prev => !prev)} onMouseLeave={() => setHover(prev => !prev)}>
         <Link to={`/dentist/${id}`}> 
           <CardActionArea>
             <CardMedia

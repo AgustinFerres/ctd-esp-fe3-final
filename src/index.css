@@ -81,25 +81,6 @@ footer > p{
   margin: 0 auto;
 }
 
-table {
-  border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    display: table;
-    border: 1px solid #ccc;
-
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
 @media (max-width: 800px) {
   .card-grid {
     flex-direction: column;

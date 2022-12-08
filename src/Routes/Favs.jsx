@@ -21,11 +21,11 @@ const Favs = () => {
   return (
     <div>
       <h1 style={{color: state.palette.mode === 'dark' ? '#fff' : '#000'}}>Dentists Favs</h1>
-      <div className="card-grid">
+      {favs.length > 0 ? <div className="card-grid">
         {/* este componente debe consumir los destacados del localStorage */}
         {/* Deberan renderizar una Card por cada uno de ellos */}
         {favs?.map(fav => <Card {...fav} key={fav.id}/>)}
-      </div>
+      </div> : <h2 style={{color: state.palette.mode === 'dark' ? '#fff' : '#000'}}>No tienes dentistas agregados a favoritos</h2>}
     </div>
   );
 };
