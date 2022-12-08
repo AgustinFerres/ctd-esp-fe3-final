@@ -42,6 +42,7 @@ const CardComponent = ({ name, username, id }) => {
       if(dentistInArray === undefined){
         const newArray = [...dentistArray, {name, username, id}]
         localStorage.setItem("favs", JSON.stringify(newArray));
+        alert("Dentist added succesfully");
       }
       else {
         return;
@@ -49,6 +50,7 @@ const CardComponent = ({ name, username, id }) => {
     }
     else{
       localStorage.setItem("favs", JSON.stringify([{name, username, id}]));
+      alert("Dentist added succesfully");
     }
   }
 
