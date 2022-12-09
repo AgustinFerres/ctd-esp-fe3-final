@@ -7,20 +7,18 @@ import axios from 'axios'
 import { useOutlet } from 'react-router-dom'
 import Footer from '../Components/Footer'
 import { Box } from '@mui/material'
-import { useContext } from 'react'
-import { ContextGlobal } from '../Components/utils/global.context'
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
 
-  const { state } = useContext(ContextGlobal)
-
   const [data, setData] = useState(null)
-  
+
+  const url = "https://jsonplaceholder.typicode.com/users"
+
   useEffect(() => {
-    setData(state.data)
-  }, [state])
+    axios.get(url).then(res => setData(res.data)).catch(err => console.log(err))
+  },[])
 
   const outlet = useOutlet();
 

@@ -1,17 +1,15 @@
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useReducer } from "react";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import axios from "axios";
 
 
 export const ContextGlobal = createContext();
 
 
-const reducerFunction = (state, action) => {
-  switch (action.type) {
+const reducerFunction = (state, { type }) => {
+  switch (type) {
     case "dark":
       return createTheme({
-        ...state,
         palette: {
           mode: 'light',
           primary: {
@@ -32,7 +30,6 @@ const reducerFunction = (state, action) => {
       })
     case "light":
       return createTheme({
-        ...state,
         palette: {
           mode: 'dark',
           primary: {
@@ -51,11 +48,6 @@ const reducerFunction = (state, action) => {
           }
         },
       })
-    case "data":
-      return {
-        ...state,
-        data: action.payload
-      }
     default:
       return state;
   }
@@ -83,15 +75,10 @@ const ContextProvider = ({ children }) => {
     },
   })
 
+
   
   //SE TIENE QUE LLAMAR ASÍ
   const [state, dispatch] = useReducer(reducerFunction, initalState);
-  
-  const url = "https://jsonplaceholder.typicode.com/users"
-
-  useEffect(() => {
-    axios.get(url).then(res => dispatch({type: 'data', payload: res.data})).catch(err => console.log(err))
-  },[])
 
   const app = {
     state, dispatch
