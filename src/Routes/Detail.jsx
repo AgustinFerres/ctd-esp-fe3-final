@@ -58,7 +58,7 @@ const Detail = () => {
 
   return (
       <List
-        sx={{ width: '60%', bgcolor: 'background.paper' }}
+        sx={{ width: '60%', minWidth: 300, bgcolor: 'background.paper' }}
         component="ul"
         aria-labelledby="nested-list-subheader"
         subheader={
