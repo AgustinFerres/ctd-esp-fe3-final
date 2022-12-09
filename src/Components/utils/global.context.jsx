@@ -6,12 +6,12 @@ import CssBaseline from '@mui/material/CssBaseline';
 export const ContextGlobal = createContext();
 
 
-const reducerFunction = (state, { mode }) => {
-  switch (mode) {
+const reducerFunction = (state, { type }) => {
+  switch (type) {
     case "dark":
       return createTheme({
         palette: {
-          mode: 'light',
+          type: 'light',
           primary: {
             main: '#283593',
             light: '#283593'
@@ -31,7 +31,7 @@ const reducerFunction = (state, { mode }) => {
     case "light":
       return createTheme({
         palette: {
-          mode: 'dark',
+          type: 'dark',
           primary: {
             main: '#242424',
             light: '#373737'
@@ -74,6 +74,9 @@ const ContextProvider = ({ children }) => {
       }
     },
   })
+
+
+  
   //SE TIENE QUE LLAMAR ASÍ
   const [state, dispatch] = useReducer(reducerFunction, initalState);
 

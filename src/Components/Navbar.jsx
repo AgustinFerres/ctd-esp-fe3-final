@@ -31,7 +31,7 @@ const NavBar = () => {
   const { state, dispatch } = useContext(ContextGlobal)
 
   const handleTheme = (currentMode) => {
-      dispatch({mode: currentMode})
+      dispatch({type: currentMode})
   }
 
   return (

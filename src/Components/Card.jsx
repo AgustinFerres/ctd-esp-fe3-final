@@ -63,7 +63,7 @@ const CardComponent = ({ name, username, id }) => {
 
   return (
     <>
-      <Card sx={{ width: window.innerWidth < 800 ? '50vw' : '10vw', display: {xs: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}} raised={hover} onMouseEnter={() => setHover(prev => !prev)} onMouseLeave={() => setHover(prev => !prev)}>
+      <Card sx={{ width: window.innerWidth < 800 ? '50vw' : '10vw', minWidth: '200px', display: {xs: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}} raised={hover} onMouseEnter={() => setHover(prev => !prev)} onMouseLeave={() => setHover(prev => !prev)}>
         <Link to={`/dentist/${id}`}> 
           <CardActionArea>
             <CardMedia
