@@ -11,20 +11,26 @@ import { ContextGlobal } from "../Components/utils/global.context";
 
 const Favs = () => {
 
-  const [favs, setFavs] = useState([])
+  const [favs, setFavs] = useState([]);
+  const [ remove, setRemove ] = useState(0);
 
   useEffect(() => {
-    setFavs(JSON.parse(localStorage.getItem("favs")))
-  },[favs])
+    setFavs(JSON.parse(localStorage.getItem("favs")) || [])
+  },[remove])
 
   const { state } = useContext(ContextGlobal)
+
+  const handleRemove = () => {
+    setRemove(prev => prev + 1)
+  }
+
   return (
     <div>
       <h1 style={{color: state.palette.mode === 'dark' ? '#fff' : '#000'}}>Dentists Favs</h1>
       {favs.length > 0 ? <div className="card-grid">
         {/* este componente debe consumir los destacados del localStorage */}
         {/* Deberan renderizar una Card por cada uno de ellos */}
-        {favs?.map(fav => <Card {...fav} key={fav.id}/>)}
+        {favs?.map(fav => <Card {...fav} key={fav.id} remove={handleRemove}/>)}
       </div> : <h2 style={{color: state.palette.mode === 'dark' ? '#fff' : '#000'}}>No tienes dentistas agregados a favoritos</h2>}
     </div>
   );

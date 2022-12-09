@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { ContextGlobal } from "./utils/global.context";
 
 
-const CardComponent = ({ name, username, id }) => {
+const CardComponent = ({ name, username, id, remove }) => {
 
   const [buttonValue, setButtonValue] = useState("Add Fav");
   const { state } = useContext(ContextGlobal);
@@ -31,6 +31,7 @@ const CardComponent = ({ name, username, id }) => {
     }
     else if(e.target.innerText === "REMOVE FAV") {
       removeFav();
+      remove && remove();
       setButtonValue("Add Fav");
     }
   }
