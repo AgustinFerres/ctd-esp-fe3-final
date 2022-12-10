@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ContextProvider from "../Components/utils/global.context";
 import Home from "../Routes/Home";
 
-describe("testing the dentis are rendered", () => {
+describe("testing the dentists are rendered", () => {
 
     test("Card to have Leanne Graham name", async () => {
         render(
