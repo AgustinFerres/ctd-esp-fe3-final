@@ -126,7 +126,7 @@ const NavBar = () => {
                   </Button>
                 </Link>
               ))}
-              <ToogleButton onClick={() => handleTheme(state.palette.mode)}/>
+              <ToogleButton onClick={() => handleTheme(state.palette.mode)} />
             </Box>
           </div>
         </Toolbar>
