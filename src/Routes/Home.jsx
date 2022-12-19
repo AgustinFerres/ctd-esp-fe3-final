@@ -23,12 +23,12 @@ const Home = () => {
   const outlet = useOutlet();
 
   return (
-    <Box component='main' sx={{display: {xs: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', gap: '50px'}, height: '100vh'}}>
+    <Box component='div' sx={{display: {xs: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', gap: '50px'}, height: '100vh'}}>
       <NavBar/>
       {
-        outlet || <div className='card-grid'>
+        outlet || <main className='card-grid'>
                     {data?.map(odontologo => <Card {...odontologo} key={odontologo.id}/>)}
-                  </div>
+                  </main>
       }
       <Footer/>
     </Box>
