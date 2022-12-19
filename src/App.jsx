@@ -8,7 +8,7 @@ import Contact from "./Routes/Contact";
 
 function App() {
   return (
-      <BrowserRouter>
+      <BrowserRouter basename="/ctd-esp-fe3-final">
         <Routes>
           <Route path="/" element={<Home/>}>
             <Route path="/favs" element={<Favs/>}/>
