@@ -1,10 +1,15 @@
-import React from "react";
+import React, { lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./Routes/Home";
-import Favs from "./Routes/Favs";
-import Detail from "./Routes/Detail";
-import Contact from "./Routes/Contact";
+// import Home from "./Routes/Home";
+// import Favs from "./Routes/Favs";
+// import Detail from "./Routes/Detail";
+// import Contact from "./Routes/Contact";
 
+
+const Home = lazy(() => import("./Routes/Home"));
+const Favs = lazy(() => import("./Routes/Favs"));
+const Detail = lazy(() => import("./Routes/Detail"));
+const Contact = lazy(() => import("./Routes/Contact"));
 
 function App() {
   return (

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import Card from '../Components/Card'
@@ -25,11 +25,13 @@ const Home = () => {
   return (
     <Box component='div' sx={{display: {xs: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', gap: '50px'}, height: '100vh'}}>
       <NavBar/>
-      {
-        outlet || <main className='card-grid'>
-                    {data?.map(odontologo => <Card {...odontologo} key={odontologo.id}/>)}
-                  </main>
-      }
+      <Suspense>
+        {
+          outlet || <main className='card-grid'>
+                      {data?.map(odontologo => <Card {...odontologo} key={odontologo.id}/>)}
+                    </main>
+        }
+      </Suspense>
       <Footer/>
     </Box>
   )

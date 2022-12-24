@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ContextGlobal } from "./utils/global.context";
-
+import doctor from "./utils//images/doctor.jpg"
 
 const CardComponent = ({ name, username, id, remove }) => {
 
@@ -70,7 +70,7 @@ const CardComponent = ({ name, username, id, remove }) => {
             <CardMedia
               component="img"
               width="100%"
-              image="./images/doctor.jpg"
+              src={doctor}
               alt="doctor image"
             />
             <CardContent>
